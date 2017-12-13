@@ -62,11 +62,11 @@ module IOTA
       end
 
       def transactionObject(trytes)
-        return nil if !trytes
+        return if !trytes
 
         # validity check
         (2279...2295).step(1) do |i|
-          return nil if trytes[i] != "9"
+          raise ArgumentError, "Invalid trytes provided" if trytes[i] != "9"
         end
 
         trx = {}
