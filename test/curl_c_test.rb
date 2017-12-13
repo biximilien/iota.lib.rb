@@ -1,5 +1,5 @@
 require "test_helper"
-if !Dir.glob(File.join(File.dirname(__FILE__), '../lib/ccurl.*')).empty?
+if File.file?(File.join(File.dirname(__FILE__), '../lib/ccurl.bundle'))
   require "iota/crypto/curl_c"
 
   class CcurlTest < Minitest::Test
