@@ -13,13 +13,11 @@ class CurlTest < Minitest::Test
     transactionTrits = @converter.trits(trytes)
     hash = []
 
-    start = Time.now
     # generate the correct transaction hash
     @curl.reset
     @curl.absorb(transactionTrits)
     @curl.squeeze(hash)
     hash = @converter.trytes(hash)
-    puts "Ruby Curl time: #{(Time.now - start) * 1000.0}ms"
 
     assert expected_hash == hash
   end
